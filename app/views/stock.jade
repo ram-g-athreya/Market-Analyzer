@@ -1,0 +1,74 @@
+html(lang="en")
+    head
+        title Stock Data
+        include includes/_defaults
+    body
+        include includes/_header
+        div.container-fluid
+            div.row-fluid
+                include includes/_sidebar
+
+                <!-- Main content area -->
+                div.span9
+                    div.row-fluid
+                        div.block
+                            div.navbar.navbar-inner.block-header
+                                div.muted.pull-left Stock Data
+                            div.block-content.collapse.in
+                                div.span12
+                                    table.table.table-striped
+                                        thead
+                                            tr
+                                                th OPEN
+                                                th CLOSE
+                                                th RETURN
+                                                th SR(WEEK)
+                                                th SR(MONTH)
+                                                th SR(QUARTER)
+                                                th SR(YEAR)
+                                                th ACTION
+                                                th DATETIME
+                                        tbody
+                                            - for(var row=0;row<data.length;row++)
+                                                tr 
+                                                    td 
+                                                        = data[row]['OPEN']
+                                                    td 
+                                                        = data[row]['CLOSE']
+                                                    - if(data[row]['DAILY_RETURN']>=0)
+                                                        td.green
+                                                            = data[row]['DAILY_RETURN'].toFixed(4)
+                                                    - else
+                                                        td.red
+                                                            = data[row]['DAILY_RETURN'].toFixed(4)
+
+                                                    - if(data[row]['SHARPE_RATIO_WEEK']>=0)
+                                                        td.green
+                                                            = data[row]['SHARPE_RATIO_WEEK'].toFixed(4)
+                                                    - else
+                                                        td.red
+                                                            = data[row]['SHARPE_RATIO_WEEK'].toFixed(4)
+
+                                                    - if(data[row]['SHARPE_RATIO_MONTH']>=0)
+                                                        td.green
+                                                            = data[row]['SHARPE_RATIO_MONTH'].toFixed(4)
+                                                    - else
+                                                        td.red
+                                                            = data[row]['SHARPE_RATIO_MONTH'].toFixed(4)
+                                                    - if(data[row]['SHARPE_RATIO_QUARTER']>=0)
+                                                        td.green
+                                                            = data[row]['SHARPE_RATIO_QUARTER'].toFixed(4)
+                                                    - else
+                                                        td.red
+                                                            = data[row]['SHARPE_RATIO_QUARTER'].toFixed(4)
+                                                    - if(data[row]['SHARPE_RATIO_YEAR']>=0)
+                                                        td.green
+                                                            = data[row]['SHARPE_RATIO_YEAR'].toFixed(4)
+                                                    - else
+                                                        td.red
+                                                            = data[row]['SHARPE_RATIO_YEAR'].toFixed(4)
+                                                    td
+                                                        = data[row]['ACTION']
+                                                    td
+                                                        = data[row]['DATETIME']
+            include includes/_footer
