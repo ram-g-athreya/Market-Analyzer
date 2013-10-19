@@ -2,7 +2,7 @@
 var config = {
     dev: {
         mode: 'development',
-        port: 3000
+        port: 80
     },
     production: {
         mode: 'production',
