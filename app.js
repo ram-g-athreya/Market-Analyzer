@@ -8,7 +8,7 @@ var express = require('express');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
-var adapter = require('./adapter').adapter;
+//var adapter = require('./adapter').adapter;
 var config = require('./config')();
 
 app = express();
@@ -33,7 +33,7 @@ if ('development' == app.get('env')) {
 }
 
 //Initializing DB
-adapter = new adapter('localhost', 27017, 'node', function() {
+//adapter = new adapter('localhost', 27017, 'node', function() {
     if (process.argv[2] == 'processor') {
         require('./app/processors/' + process.argv[3]).start();
     }
@@ -43,4 +43,4 @@ adapter = new adapter('localhost', 27017, 'node', function() {
             console.log('Express server listening on port ' + config.port);
         });
     }
-});
+//});
