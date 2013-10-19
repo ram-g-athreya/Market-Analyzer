@@ -2,11 +2,11 @@
 var config = {
     dev: {
         mode: 'development',
-        port: 8080
+        port: process.env.PORT
     },
     production: {
         mode: 'production',
-        port: 8080
+        port: process.env.PORT
     }
 };
 module.exports = function(mode) {
