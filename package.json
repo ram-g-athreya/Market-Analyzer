@@ -1,5 +1,5 @@
 {
-    "name": "application-name",
+    "name": "market-analyser",
     "version": "0.0.1",
     "private": true,
     "scripts": {
@@ -11,5 +11,9 @@
         "jade": "*",
         "connect": "*",
         "request": "2.*"
+    },
+    "engines": {
+        "node": "0.10.x",
+        "npm": "1.2.x"
     }
 }
